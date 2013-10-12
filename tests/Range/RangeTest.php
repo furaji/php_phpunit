@@ -46,10 +46,10 @@ class RangeTest extends \PHPUnit_Framework_TestCase
 
     public function provideBottomAndTopAndString()
     {
-      return array(
-        array(3, 8, '[3,8]'),
-        array(5, 8, '[5,8]'),
-      );
+        return array(
+            array(3, 8, '[3,8]'),
+            array(5, 8, '[5,8]'),
+        );
     }
 
     /**
@@ -57,17 +57,17 @@ class RangeTest extends \PHPUnit_Framework_TestCase
      */
     public function test_閉区間に指定した整数が含まれるか判定($range, $number, $is_included)
     {
-      $this->assertEquals($is_included, $range->contains($number));
+        $this->assertEquals($is_included, $range->contains($number));
     }
 
     public function provideIncludedNumber()
     {
-      return array(
-        array(new Range(3, 8), 2, false),
-        array(new Range(3, 8), 3, true),
-        array(new Range(3, 8), 8, true),
-        array(new Range(3, 8), 9, false),
-      );
+        return array(
+            array(new Range(3, 8), 2, false),
+            array(new Range(3, 8), 3, true),
+            array(new Range(3, 8), 8, true),
+            array(new Range(3, 8), 9, false),
+        );
     }
 
     /**
@@ -75,14 +75,14 @@ class RangeTest extends \PHPUnit_Framework_TestCase
      */
     public function test_閉区間の等価判定($range1, $range2, $is_equal)
     {
-       $this->assertEquals($is_equal, $range1->equals($range2));
+        $this->assertEquals($is_equal, $range1->equals($range2));
     }
 
     public function provideTwoRange()
     {
-      return array(
-        array(new Range(3, 8), new Range(3, 8), true),
-        array(new Range(3, 8), new Range(3, 9), false),
-      );
+        return array(
+            array(new Range(3, 8), new Range(3, 8), true),
+            array(new Range(3, 8), new Range(3, 9), false),
+        );
     }
 }
