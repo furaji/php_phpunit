@@ -69,4 +69,20 @@ class RangeTest extends \PHPUnit_Framework_TestCase
         array(new Range(3, 8), 9, false),
       );
     }
+
+    /**
+     * @dataProvider provideTwoRange
+     */
+    public function test_閉区間の等価判定($range1, $range2, $is_equal)
+    {
+       $this->assertEquals($is_equal, $range1->equals($range2));
+    }
+
+    public function provideTwoRange()
+    {
+      return array(
+        array(new Range(3, 8), new Range(3, 8), true),
+        array(new Range(3, 8), new Range(3, 9), false),
+      );
+    }
 }

@@ -34,4 +34,10 @@ class Range
   {
     return $this->botoom <= $number && $number <= $this->top;
   }
+
+  public function equals($other_range)
+  {
+    return $this->botoom == $other_range->getBottom()&&
+           $this->top    == $other_range->getTop();
+  }
 }
