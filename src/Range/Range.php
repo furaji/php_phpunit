@@ -29,4 +29,9 @@ class Range
   {
     return sprintf('[%d,%d]', $this->botoom, $this->top);
   }
+
+  public function contains($number)
+  {
+    return $this->botoom <= $number && $number <= $this->top;
+  }
 }

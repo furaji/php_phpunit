@@ -63,7 +63,10 @@ class RangeTest extends \PHPUnit_Framework_TestCase
     public function provideIncludedNumber()
     {
       return array(
-        array(new Range(3, 8), 4, true),
+        array(new Range(3, 8), 2, false),
+        array(new Range(3, 8), 3, true),
+        array(new Range(3, 8), 8, true),
+        array(new Range(3, 8), 9, false),
       );
     }
 }
