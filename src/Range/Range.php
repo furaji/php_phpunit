@@ -3,21 +3,21 @@ namespace Range;
 
 class Range
 {
-    private $botoom;
+    private $bottom;
     private $top;
 
-    public function __construct($botoom, $top)
+    public function __construct($bottom, $top)
     {
-        if ($botoom > $top) {
+        if ($bottom > $top) {
             throw new Exception\InvalidRangeException;
         }
-        $this->botoom = $botoom;
+        $this->bottom = $bottom;
         $this->top = $top;
     }
 
     public function getBottom()
     {
-        return $this->botoom;
+        return $this->bottom;
     }
 
     public function getTop()
@@ -27,17 +27,17 @@ class Range
 
     public function toString()
     {
-        return sprintf('[%d,%d]', $this->botoom, $this->top);
+        return sprintf('[%d,%d]', $this->bottom, $this->top);
     }
 
     public function contains($number)
     {
-        return $this->botoom <= $number && $number <= $this->top;
+        return $this->bottom <= $number && $number <= $this->top;
     }
 
     public function equals($other_range)
     {
-        return $this->botoom == $other_range->getBottom()&&
+        return $this->bottom == $other_range->getBottom()&&
                $this->top    == $other_range->getTop();
     }
 }
