@@ -40,4 +40,11 @@ class Range
         return $this->bottom == $other_range->getBottom()&&
                $this->top    == $other_range->getTop();
     }
+
+    public function isConnectedTo($other_range)
+    {
+        $not_connect = ($other_range->getTop() < $this->bottom ||
+                        $this->top < $other_range->getBottom());
+        return !$not_connect;
+    }
 }

@@ -85,4 +85,27 @@ class RangeTest extends \PHPUnit_Framework_TestCase
             array(new Range(3, 8), new Range(3, 9), false),
         );
     }
+
+    /**
+     * @dataProvider provideTwoRangeForConnectTest
+     */
+    public function test_接続判定($range1, $range2, $is_connected)
+    {
+        $this->assertEquals($is_connected, $range1->isConnectedTo($range2));
+    }
+
+    public function provideTwoRangeForConnectTest()
+    {
+        return array(
+            array(new Range(3, 8), new Range(4, 7),  true),
+            array(new Range(3, 8), new Range(3, 8),  true),
+            array(new Range(3, 8), new Range(2, 9),  true),
+            array(new Range(3, 8), new Range(2, 4),  true),
+            array(new Range(3, 8), new Range(7, 9),  true),
+            array(new Range(3, 8), new Range(1, 2),  false),
+            array(new Range(3, 8), new Range(1, 3),  true),
+            array(new Range(3, 8), new Range(8, 10), true),
+            array(new Range(3, 8), new Range(9, 10), false),
+        );
+    }
 }
